@@ -4,53 +4,77 @@
 	<title>Hello friend</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 
 <body>
 
 	<div id="container">
-		<div id="header">
+		<div id="gSearch">
 			<h3 style="display: inline;"> <span class="green">&raquo; Search Google</span></h3>
 			<form method="get" action="https://www.google.com/search">
-				<input autofocus type="text" name="q" \> 
+				<input autofocus type="text" name="q" \>
 			</form>
 		</div>
-			
+
+		<div id="tpbSearch">
+			<h3 style="display: inline;"> <span class="green">&raquo; Search Pirate Bay</span></h3>
+				<input onKeyPress="return tpbSearch(event)" type="text"\>
+		</div>
+
 		<div id="links">
 
 			<div class="box">
 				<h3><span class="green">&raquo; Fun fun</span></h3>
-				<a href="http://www.tumblr.com">Tumblr</a>
-				<a href="http://www.coolinarika.com">Coolinarika</a>
 				<a href="http://www.youtube.com">Youtube</a>
+				<a href="http://www.twitter.com">Twitter</a>
+				<a href="http://www.coolinarika.com">Coolinarika</a>
 				<a href="https://web.whatsapp.com/">Whatsapp Web</a>
 				<a href="http://www.reddit.com">Reddit</a>
 			</div>
 
 			<div class="box">
 				<h3><span class="green">&raquo; College</span></span></h3>
-				<a href="http://www.foi.unizg.hr/">Foi index</a>	
+				<a href="http://www.foi.unizg.hr/">Foi index</a>
 				<a href="http://elf.foi.hr/">Moodle</a>
-				<a href="https://webmail.foi.hr/webmail/src/login.php">FOI Mail</a>	
+				<a href="https://webmail.foi.hr/webmail/src/login.php">FOI Mail</a>
+				<a href="http://nastava.foi.hr/">Nastava</a>
+				<a href="https://www.isvu.hr/studomat/prijava">Studomat</a>
+
+
 			</div>
 
 			<div class="box">
 				<h3><span class="green">&raquo; Geek</span></span></h3>
-				<a href="http://hackr.io/">Hackr.io</a>	
+				<a href="http://hackr.io/">Hackr.io</a>
 				<a href="https://github.com/">Github</a>
+
+				<a href="https://www.transifex.com/">Transifex</a>
+
+
 			</div>
 
 			<div class="box">
 				<h3> <span class="green">&raquo; Stuff</span></h3>
 				<a href="http://prognoza.hr/">DHMZ</a>
-				<a href="http://thepiratebay.se">TPB</a>	
+				<a href="http://thepiratebay.se">TPB</a>
+				<a href="http://bitspyder.net/">Bitspyder</a>
 				<a href="http://www.ebay.com/">ebay</a>
-				<a href="http://www.dropbox.com">Dropbox</a>
 				<a href="https://translate.google.hr/">Google Translate</a>
 			</div>
 		</div>
-		
+
 		<script type="text/javascript">
+			function tpbSearch( e ){
+				console.log("searching tpb...", e.keyCode);
+
+				if (e.keyCode == 13) {
+						var q = $("#tpbSearch input").val();
+						window.location.href = "https://pirateproxy.vip/search/" + q;
+				}
+
+			}
+
 			function clock(){
 				d = new Date();
 				nhour  = d.getHours();
